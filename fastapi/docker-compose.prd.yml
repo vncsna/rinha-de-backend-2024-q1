@@ -2,17 +2,12 @@ version: "3.5"
 
 services:
   api01: &api
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: vncsna/rinha-de-backend-2024-q1-fastapi:latest
     hostname: api01
     environment:
-      - POSTGRES_DB=rinha
-      - POSTGRES_HOST=db
-      - POSTGRES_USER=admin
-      - POSTGRES_PASS=admin
+      - DB_HOSTNAME=db
     ports:
-      - "8081:8080"
+      - "8080:8080"
     depends_on:
       - db
     deploy:
@@ -24,6 +19,8 @@ services:
   api02:
     <<: *api 
     hostname: api02
+    environment:
+      - DB_HOSTNAME=db
     ports:
       - "8082:8080"
  
@@ -48,7 +45,7 @@ services:
     environment:
       - POSTGRES_DB=rinha
       - POSTGRES_USER=admin
-      - POSTGRES_PASS=admin
+      - POSTGRES_PASSWORD=admin
     ports:
       - "5432:5432"
     volumes:

@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "rinha-de-backend-2024-q1-vncsna-fastapi"
+version = "1.0.0"
+description = "Proposta pra Rinha de Backend 2024Q1 em FastAPI"
+authors = ["Vinicius <vncsna@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["pydantic-settings", "uvicorn"], version = "^0.109.2"}
+uvicorn = "^0.27.1"
+pydantic-settings = "^2.2.1"
+sqlalchemy = "^2.0.0"
+psycopg2-binary = "^2.9.9"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
